@@ -1,11 +1,17 @@
 package com.yizuslabs.costmanagement.controller;
 
+import com.yizuslabs.costmanagement.model.beans.AjaxResponseBody;
 import com.yizuslabs.costmanagement.model.entity.TbUnidadNegocio;
 import com.yizuslabs.costmanagement.repository.UnidadNegocioRepository;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.validation.Errors;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import javax.validation.Valid;
+import java.util.stream.Collectors;
 import java.util.List;
 
 @RestController
@@ -47,8 +53,17 @@ public class UnidadNegocioController {
 
    //Create a new Contact (POST /contacts)
    @PostMapping
-   public TbUnidadNegocio create(@RequestBody TbUnidadNegocio unidadNegocio){
+   public TbUnidadNegocio create(@Valid @RequestBody TbUnidadNegocio unidadNegocio, Errors errors){
 
+       AjaxResponseBody result = new AjaxResponseBody();
+
+       if (errors.hasErrors()) {
+
+           result.setMsg(errors.getAllErrors().stream().map(x -> x.getDefaultMessage()).collect(Collectors.joining(",")));
+         //  return ResponseEntity.badRequest().body(result);
+           System.out.println(" getMsgError "+result.getMsg());
+
+       }
 
        System.out.println(" getDesUnidad "+unidadNegocio.getDesUnidad());
        System.out.println(" getUserCrea "+unidadNegocio.getUserCrea());
