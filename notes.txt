@@ -1,0 +1,9 @@
+puerto:8888:9090
+docker build -t yizus/costmanagement .
+docker run -p 9090:9090 yizus/costmanagement
+docker run -p 9090:9090 costmanagement
+
+https://spring.io/guides/gs/spring-boot-docker/
+https://medium.com/swlh/dockerizing-spring-boot-application-df5ae7dd1e37
+https://start.spring.io/
+
