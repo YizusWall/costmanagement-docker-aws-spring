@@ -1,48 +1,138 @@
 package com.yizuslabs.costmanagement.model.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.sql.Timestamp;
+import java.util.Objects;
 
-@AllArgsConstructor
-@NoArgsConstructor
-@Data
 @Entity
 @Table(name = "tbunidadnegocio", schema = "costmanager")
 public class TbUnidadNegocio {
+    private Long codUnidad;
+    private String desUnidad;
+    private String indUnidad;
+    private String codTipUnidad;
+    private Date fecCrea;
+    private String userCrea;
+    private Timestamp fecModi;
+    private String userModi;
+    private String obsUnidad;
+
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "codunidad", updatable = false, nullable = false)
-    private Long codUnidad;
+    public Long getCodUnidad() {
+        return codUnidad;
+    }
+
+    public void setCodUnidad(Long codUnidad) {
+        this.codUnidad = codUnidad;
+    }
+
     @Basic
     @Column(name = "desunidad")
-    private String desUnidad;
+    public String getDesUnidad() {
+        return desUnidad;
+    }
+
+    public void setDesUnidad(String desUnidad) {
+        this.desUnidad = desUnidad;
+    }
+
     @Basic
     @Column(name = "indunidad")
-    private String indUnidad;
+    public String getIndUnidad() {
+        return indUnidad;
+    }
+
+    public void setIndUnidad(String indUnidad) {
+        this.indUnidad = indUnidad;
+    }
+
     @Basic
     @Column(name = "codtipunidad")
-    private String codTipUnidad;
+    public String getCodTipUnidad() {
+        return codTipUnidad;
+    }
+
+    public void setCodTipUnidad(String codTipUnidad) {
+        this.codTipUnidad = codTipUnidad;
+    }
+
     @Basic
     @CreationTimestamp
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "feccrea")
-    private Date fecCrea;
+    public Date getFecCrea() {
+        return fecCrea;
+    }
+
+    public void setFecCrea(Date fecCrea) {
+        this.fecCrea = fecCrea;
+    }
+
+
     @Basic
     @Column(name = "usercrea")
-    private String userCrea;
+    public String getUserCrea() {
+        return userCrea;
+    }
+
+    public void setUserCrea(String userCrea) {
+        this.userCrea = userCrea;
+    }
+
     @Basic
     @Column(name = "fecmodi")
-    private Date fecModi;
+    public Timestamp getFecModi() {
+        return fecModi;
+    }
+
+    public void setFecModi(Timestamp fecModi) {
+        this.fecModi = fecModi;
+    }
+
     @Basic
     @Column(name = "usermodi")
-    private String userModi;
+    public String getUserModi() {
+        return userModi;
+    }
+
+    public void setUserModi(String userModi) {
+        this.userModi = userModi;
+    }
+
     @Basic
     @Column(name = "obsunidad")
-    private String obsUnidad;
+    public String getObsUnidad() {
+        return obsUnidad;
+    }
 
-   }
+    public void setObsUnidad(String obsUnidad) {
+        this.obsUnidad = obsUnidad;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        TbUnidadNegocio that = (TbUnidadNegocio) o;
+        return codUnidad == that.codUnidad &&
+                Objects.equals(desUnidad, that.desUnidad) &&
+                Objects.equals(indUnidad, that.indUnidad) &&
+                Objects.equals(codTipUnidad, that.codTipUnidad) &&
+                Objects.equals(fecCrea, that.fecCrea) &&
+                Objects.equals(userCrea, that.userCrea) &&
+                Objects.equals(fecModi, that.fecModi) &&
+                Objects.equals(userModi, that.userModi) &&
+                Objects.equals(obsUnidad, that.obsUnidad);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(codUnidad, desUnidad, indUnidad, codTipUnidad, fecCrea, userCrea, fecModi, userModi, obsUnidad);
+    }
+
+}
