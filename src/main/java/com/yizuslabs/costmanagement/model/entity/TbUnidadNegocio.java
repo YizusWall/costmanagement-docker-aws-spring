@@ -4,7 +4,6 @@ import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
 import java.util.Date;
-import java.sql.Timestamp;
 import java.util.Objects;
 
 @Entity
@@ -16,8 +15,6 @@ public class TbUnidadNegocio {
     private String codTipUnidad;
     private Date fecCrea;
     private String userCrea;
-    private Timestamp fecModi;
-    private String userModi;
     private String obsUnidad;
 
     @Id
@@ -84,25 +81,6 @@ public class TbUnidadNegocio {
         this.userCrea = userCrea;
     }
 
-    @Basic
-    @Column(name = "fecmodi")
-    public Timestamp getFecModi() {
-        return fecModi;
-    }
-
-    public void setFecModi(Timestamp fecModi) {
-        this.fecModi = fecModi;
-    }
-
-    @Basic
-    @Column(name = "usermodi")
-    public String getUserModi() {
-        return userModi;
-    }
-
-    public void setUserModi(String userModi) {
-        this.userModi = userModi;
-    }
 
     @Basic
     @Column(name = "obsunidad")
@@ -125,14 +103,12 @@ public class TbUnidadNegocio {
                 Objects.equals(codTipUnidad, that.codTipUnidad) &&
                 Objects.equals(fecCrea, that.fecCrea) &&
                 Objects.equals(userCrea, that.userCrea) &&
-                Objects.equals(fecModi, that.fecModi) &&
-                Objects.equals(userModi, that.userModi) &&
                 Objects.equals(obsUnidad, that.obsUnidad);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(codUnidad, desUnidad, indUnidad, codTipUnidad, fecCrea, userCrea, fecModi, userModi, obsUnidad);
+        return Objects.hash(codUnidad, desUnidad, indUnidad, codTipUnidad, fecCrea, userCrea, obsUnidad);
     }
 
 }

@@ -22,8 +22,6 @@ public class TbProcesoCosto {
     private Date fecIngreso;
     private Timestamp fecCrea;
     private String userCrea;
-    private Timestamp fecModi;
-    private String userModi;
     private String indDel;
     private String codFormato;
 
@@ -139,26 +137,6 @@ public class TbProcesoCosto {
     }
 
     @Basic
-    @Column(name = "fecmodi")
-    public Timestamp getFecModi() {
-        return fecModi;
-    }
-
-    public void setFecModi(Timestamp fecModi) {
-        this.fecModi = fecModi;
-    }
-
-    @Basic
-    @Column(name = "usermodi")
-    public String getUserModi() {
-        return userModi;
-    }
-
-    public void setUserModi(String userModi) {
-        this.userModi = userModi;
-    }
-
-    @Basic
     @Column(name = "inddel")
     public String getIndDel() {
         return indDel;
@@ -194,14 +172,12 @@ public class TbProcesoCosto {
                 Objects.equals(fecIngreso, that.fecIngreso) &&
                 Objects.equals(fecCrea, that.fecCrea) &&
                 Objects.equals(userCrea, that.userCrea) &&
-                Objects.equals(fecModi, that.fecModi) &&
-                Objects.equals(userModi, that.userModi) &&
                 Objects.equals(indDel, that.indDel) &&
                 Objects.equals(codFormato, that.codFormato);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(numOrden, codUnidad, codSubUnidad, codEmpleado, costoAsignado, costoConsume, porcentaje, currentCosto, fecIngreso, fecCrea, userCrea, fecModi, userModi, indDel, codFormato);
+        return Objects.hash(numOrden, codUnidad, codSubUnidad, codEmpleado, costoAsignado, costoConsume, porcentaje, currentCosto, fecIngreso, fecCrea, userCrea, indDel, codFormato);
     }
 }

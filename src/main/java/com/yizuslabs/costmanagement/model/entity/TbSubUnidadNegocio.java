@@ -15,8 +15,6 @@ public class TbSubUnidadNegocio {
     private String indSubUnidad;
     private Timestamp fecCrea;
     private String userCrea;
-    private Timestamp fecModi;
-    private String userModi;
     private String obsSubUnidad;
 
     @Id
@@ -82,26 +80,6 @@ public class TbSubUnidadNegocio {
     }
 
     @Basic
-    @Column(name = "fecmodi")
-    public Timestamp getFecModi() {
-        return fecModi;
-    }
-
-    public void setFecModi(Timestamp fecModi) {
-        this.fecModi = fecModi;
-    }
-
-    @Basic
-    @Column(name = "usermodi")
-    public String getUserModi() {
-        return userModi;
-    }
-
-    public void setUserModi(String userModi) {
-        this.userModi = userModi;
-    }
-
-    @Basic
     @Column(name = "obssubunidad")
     public String getObsSubUnidad() {
         return obsSubUnidad;
@@ -122,13 +100,11 @@ public class TbSubUnidadNegocio {
                 Objects.equals(indSubUnidad, that.indSubUnidad) &&
                 Objects.equals(fecCrea, that.fecCrea) &&
                 Objects.equals(userCrea, that.userCrea) &&
-                Objects.equals(fecModi, that.fecModi) &&
-                Objects.equals(userModi, that.userModi) &&
                 Objects.equals(obsSubUnidad, that.obsSubUnidad);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(codSubUnidad,codUnidad, desSubUnidad, indSubUnidad, fecCrea, userCrea, fecModi, userModi, obsSubUnidad);
+        return Objects.hash(codSubUnidad, codUnidad, desSubUnidad, indSubUnidad, fecCrea, userCrea, obsSubUnidad);
     }
 }

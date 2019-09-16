@@ -14,9 +14,7 @@ public class TbUsuario {
     private String pwdUsuario;
     private Timestamp fecCrea;
     private String userCrea;
-    private Timestamp fecModi;
-    private String userModi;
-    private String codgrupo;
+
 
     @Id
     @Column(name = "codusuario")
@@ -88,36 +86,6 @@ public class TbUsuario {
         this.userCrea = userCrea;
     }
 
-    @Basic
-    @Column(name = "fecmodi")
-    public Timestamp getFecModi() {
-        return fecModi;
-    }
-
-    public void setFecModi(Timestamp fecModi) {
-        this.fecModi = fecModi;
-    }
-
-    @Basic
-    @Column(name = "usermodi")
-    public String getUserModi() {
-        return userModi;
-    }
-
-    public void setUserModi(String userModi) {
-        this.userModi = userModi;
-    }
-
-    @Basic
-    @Column(name = "codgrupo")
-    public String getCodGrupo() {
-        return codgrupo;
-    }
-
-    public void setCodGrupo(String codgrupo) {
-        this.codgrupo = codgrupo;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -129,14 +97,11 @@ public class TbUsuario {
                 Objects.equals(codEmpleado, that.codEmpleado) &&
                 Objects.equals(pwdUsuario, that.pwdUsuario) &&
                 Objects.equals(fecCrea, that.fecCrea) &&
-                Objects.equals(userCrea, that.userCrea) &&
-                Objects.equals(fecModi, that.fecModi) &&
-                Objects.equals(userModi, that.userModi) &&
-                Objects.equals(codgrupo, that.codgrupo);
+                Objects.equals(userCrea, that.userCrea);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(codUsuario, nomUsuario, indUsuario, codEmpleado, pwdUsuario, fecCrea, userCrea, fecModi, userModi, codgrupo);
+        return Objects.hash(codUsuario, nomUsuario, indUsuario, codEmpleado, pwdUsuario, fecCrea, userCrea);
     }
 }
